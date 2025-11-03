@@ -9,10 +9,8 @@ import java.util.ArrayList;
 public class Enemy {
     public enum ShootPattern {
         CIRCLE,        // 원형 발사
-        SPIRAL,        // 나선형
         AIMED,         // 플레이어 조준
         RANDOM,        // 랜덤 방향
-        WAVE           // 파도형
     }
 
     public enum MovementPattern {
@@ -149,17 +147,11 @@ public class Enemy {
             case CIRCLE:
                 bullets = shootCircle();
                 break;
-            case SPIRAL:
-                bullets = shootSpiral();
-                break;
             case AIMED:
                 bullets = shootAimed(player);
                 break;
             case RANDOM:
                 bullets = shootRandom();
-                break;
-            case WAVE:
-                bullets = shootWave();
                 break;
         }
 
@@ -184,25 +176,6 @@ public class Enemy {
         return bullets;
     }
 
-    private ArrayList<Bullet> shootSpiral() {
-        ArrayList<Bullet> bullets = new ArrayList<Bullet>();
-        float angleStep = 360f / bulletsPerShot;
-
-        for (int i = 0; i < bulletsPerShot; i++) {
-            float angle = (i * angleStep + patternAngle) % 360f;
-            float rad = (float)Math.toRadians(angle);
-            float vx = (float)Math.cos(rad) * bulletSpeed;
-            float vy = (float)Math.sin(rad) * bulletSpeed;
-
-            Bullet bullet = new Bullet("spike.png", x, y, vx, vy, 8f);
-            bullet.setColor(new Color(0.3f, 0.6f, 1f, 1f));
-            bullets.add(bullet);
-        }
-
-        patternAngle += 15f;
-
-        return bullets;
-    }
 
     private ArrayList<Bullet> shootAimed(Player player) {
         ArrayList<Bullet> bullets = new ArrayList<Bullet>();
@@ -255,26 +228,6 @@ public class Enemy {
             bullet.setColor(new Color(0.8f, 1f, 0.3f, 1f));
             bullets.add(bullet);
         }
-
-        return bullets;
-    }
-
-    private ArrayList<Bullet> shootWave() {
-        ArrayList<Bullet> bullets = new ArrayList<Bullet>();
-        float angleStep = 180f / (bulletsPerShot - 1);
-
-        for (int i = 0; i < bulletsPerShot; i++) {
-            float angle = -90f + i * angleStep + (float)Math.sin(patternAngle) * 30f;
-            float rad = (float)Math.toRadians(angle);
-            float vx = (float)Math.cos(rad) * bulletSpeed;
-            float vy = (float)Math.sin(rad) * bulletSpeed;
-
-            Bullet bullet = new Bullet("spike.png", x, y, vx, vy, 8f);
-            bullet.setColor(new Color(0.5f, 1f, 0.8f, 1f));
-            bullets.add(bullet);
-        }
-
-        patternAngle += 0.2f;
 
         return bullets;
     }
