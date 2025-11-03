@@ -169,7 +169,7 @@ public class Enemy {
             float vy = (float)Math.sin(rad) * bulletSpeed;
 
             Bullet bullet = new Bullet("spike.png", x, y, vx, vy, 8f);
-            bullet.setColor(new Color(1f, 0.3f, 0.3f, 1f));
+            bullet.setColor(new Color(1f, 1f, 1f, 1f));
             bullets.add(bullet);
         }
 
