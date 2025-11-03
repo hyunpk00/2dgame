@@ -61,7 +61,7 @@ public class LevelManager {
         level1.setFlickCooldown(0.6f);
 
         // 생존 시간
-        level1.setSurvivalTime(1f);
+        level1.setSurvivalTime(30f);
 
         // 시작 위치
         level1.setPlayerStart(640f, 150f);
@@ -110,7 +110,7 @@ public class LevelManager {
         level2.setFlickCooldown(0.8f);
 
         // 생존 시간
-        level2.setSurvivalTime(10f);
+        level2.setSurvivalTime(45f);
 
         // 시작 위치
         level2.setPlayerStart(640f, 150f);
