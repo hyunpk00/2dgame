@@ -189,7 +189,7 @@ public class LevelManager {
         level3.setFlickCooldown(1.0f);
 
         // 생존 시간
-        level3.setSurvivalTime(20f);
+        level3.setSurvivalTime(60f);
 
         // 시작 위치
         level3.setPlayerStart(640f, 150f);

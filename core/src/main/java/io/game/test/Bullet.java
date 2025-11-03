@@ -62,8 +62,8 @@ public class Bullet {
         y += vy * dt;
 
         // 화면 밖으로 나가면 비활성화
-        if (x < -50 || x > world.getWidth() + 50 ||
-            y < -50 || y > world.getHeight() + 50) {
+        if (x < -20 || x > world.getWidth() + 20 ||
+            y < -20 || y > world.getHeight() + 20) {
             active = false;
         }
 
